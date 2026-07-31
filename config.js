@@ -2,14 +2,15 @@ const CONFIG = {
     boyName: "Abang",
     girlName: "Ucii",
     relationshipDate: "2025-07-10",
-    music: "assets/music/our-song.mp3",
-    photos: [
-  "assets/images/foto1.jpg",
-  "assets/images/foto2.jpg",
-  "assets/images/foto3.jpg",
-  "assets/images/foto4.jpg",
-  "assets/images/foto5.jpg"
-],
+    music: "our-song.mp3",
+
+photos: [
+  "foto1.jpg",
+  "foto2.jpg",
+  "foto3.jpg",
+  "foto4.jpg",
+  "foto5.jpg"
+]
     message: `happy girlfriend dayyy, sayangggkuuuuu 🤍🌷
     
     abangg buat ini khusus untuk ucii yangg palingg manisss🫰
