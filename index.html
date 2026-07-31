@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="assets/music/our-song.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Music Control Float Widget -->
+    <div id="musicControl" class="music-control hidden">
+        <button id="musicToggleBtn" aria-label="Play/Pause Music">
+            <span id="musicIcon">🎵</span>
+        </button>
+        <div class="volume-slider-container">
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="main-container">
+
+        <!-- Scene 1: Opening Cinematic -->
+        <section id="scene1" class="scene active">
+            <div class="backdrop-blur-circle"></div>
+            <div class="content-wrapper cinematic-fade-in">
+                <span class="subtitle-tag">A Special Celebration</span>
+                <h1 id="openingTitle" class="opening-title"></h1>
+                <p class="opening-desc">Sebuah momen indah untuk seseorang yang paling istimewa di hatiku, hehehe.</p>
+                <button id="startBtn" class="primary-btn">
+                    <span>Mulai Perjalanan</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 2: Relationship Counter -->
+        <section id="scene2" class="scene">
+            <div class="content-wrapper">
+                <span class="subtitle-tag">Waktu Bersama Kita!</span>
+                <h2>Our Journey Together</h2>
+                <p class="section-subtitle">Setiap detik berharga semenjak kita bersama.</p>
+                
+                <div class="counter-grid">
+                    <div class="counter-card glass-panel">
+                        <span id="daysCount" class="counter-number">0</span>
+                        <span class="counter-label">Hari</span>
+                    </div>
+                    <div class="counter-card glass-panel">
+                        <span id="hoursCount" class="counter-number">0</span>
+                        <span class="counter-label">Jam</span>
+                    </div>
+                    <div class="counter-card glass-panel">
+                        <span id="minutesCount" class="counter-number">0</span>
+                        <span class="counter-label">Menit</span>
+                    </div>
+                    <div class="counter-card glass-panel">
+                        <span id="secondsCount" class="counter-number">0</span>
+                        <span class="counter-label">Detik</span>
+                    </div>
+                </div>
+
+                <div class="scene-navigation">
+                    <button class="secondary-btn prev-btn" data-target="1">Kembali</button>
+                    <button class="primary-btn next-btn" data-target="3">Lihat Kenangan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 3: Photo Gallery -->
+        <section id="scene3" class="scene">
+            <div class="content-wrapper">
+                <span class="subtitle-tag">Galeri Kenangan</span>
+                <h2>Moments of Us</h2>
+                <p class="section-subtitle">Kumpulan memori indah yang terukir bersama.</p>
+
+                <div id="galleryContainer" class="gallery-slider">
+                    <!-- Dinamis diisi dari JS berdasarkan CONFIG.photos -->
+                </div>
+
+                <div class="gallery-indicators" id="galleryDots"></div>
+
+                <div class="scene-navigation">
+                    <button class="secondary-btn prev-btn" data-target="2">Sebelumnya</button>
+                    <button class="primary-btn next-btn" data-target="4">Baca Pesan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 4: Love Letter -->
+        <section id="scene4" class="scene">
+            <div class="content-wrapper letter-wrapper">
+                <span class="subtitle-tag">Ungkapan Hati</span>
+                <h2>A Letter For You</h2>
+                
+                <div class="glass-panel letter-container">
+                    <div id="typewriterText" class="letter-content"></div>
+                </div>
+
+                <div class="scene-navigation">
+                    <button class="secondary-btn prev-btn" data-target="3">Sebelumnya</button>
+                    <button id="toEndingBtn" class="primary-btn next-btn" data-target="5">Lanjut</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 5: Ending / Celebration -->
+        <section id="scene5" class="scene">
+            <canvas id="confettiCanvas"></canvas>
+            <div class="content-wrapper ending-wrapper">
+                <div class="heart-pulse-container">
+                    <div class="pulse-ring"></div>
+                    <div class="heart-icon-wrapper">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" class="rose-gold-heart"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                </div>
+
+                <span class="subtitle-tag special-tag">Happy Girlfriend Day</span>
+                <h2 id="endingMainTitle" class="ending-title"></h2>
+                <p id="endingSubtitle" class="ending-desc">Terima kasih telah menjadi bagian terindah dalam hidupku.</p>
+
+                <div class="scene-navigation center-action">
+                    <button id="replayBtn" class="secondary-btn">Ulangi Dari Awal</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
